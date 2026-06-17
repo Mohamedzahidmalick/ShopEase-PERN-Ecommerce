@@ -1,0 +1,54 @@
+/* ===== TABLE WRAPPER ===== */
+.table-wrapper {
+  @apply w-full overflow-hidden rounded-xl shadow-lg bg-white dark:bg-[#0d1117] border border-gray-200 dark:border-gray-700;
+}
+
+/* ===== TABLE ===== */
+.table-custom {
+  @apply w-full border-collapse text-left;
+}
+
+/* ===== TABLE HEADER ===== */
+.table-custom thead tr {
+  @apply bg-gradient-to-r from-blue-600 to-cyan-500 text-white;
+}
+
+.table-custom th {
+  @apply px-6 py-3 text-sm font-semibold uppercase tracking-wide;
+}
+
+/* ===== TABLE BODY ===== */
+.table-custom tbody tr {
+  @apply border-b dark:border-gray-700 transition-all duration-200;
+}
+
+/* ===== ROW HOVER GLOW ===== */
+.table-custom tbody tr:hover {
+  @apply bg-blue-50 dark:bg-[#1a2634] shadow-md;
+}
+
+/* ===== CELLS ===== */
+.table-custom td {
+  @apply px-6 py-3 text-sm text-gray-700 dark:text-gray-300;
+}
+
+/* ===== STATUS BADGES ===== */
+.badge-active {
+  @apply px-3 py-1 rounded-full bg-green-600 text-white text-xs font-semibold;
+}
+
+.badge-inactive {
+  @apply px-3 py-1 rounded-full bg-red-600 text-white text-xs font-semibold;
+}
+
+/* ===== TABLE ACTION BUTTONS ===== */
+.table-action-btn {
+  @apply px-3 py-1 rounded-md text-white text-xs font-semibold cursor-pointer 
+         bg-indigo-600 hover:bg-indigo-500 dark:bg-indigo-700 dark:hover:bg-indigo-600 
+         transition-all duration-200;
+}
+
+/* ===== IMAGE CELL ===== */
+.table-img {
+  @apply w-12 h-12 rounded-md object-cover shadow-md;
+}

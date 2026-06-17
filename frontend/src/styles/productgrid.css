@@ -1,0 +1,54 @@
+.product-grid {
+  @apply grid gap-6 p-4
+         grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4;
+}
+
+/* Product Card */
+.product-card {
+  @apply bg-white dark:bg-[#0d1117] rounded-2xl shadow-lg border
+         border-gray-200 dark:border-gray-700 overflow-hidden
+         transition-all duration-300 cursor-pointer relative;
+}
+
+/* Hover Float & Shadow */
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 150, 255, 0.15);
+}
+
+/* Product Image Wrapper */
+.product-img-wrapper {
+  @apply w-full h-52 bg-gray-100 dark:bg-[#1b1f24] overflow-hidden flex items-center justify-center;
+}
+
+.product-img {
+  @apply w-full h-full object-cover transition-all duration-300;
+}
+
+.product-card:hover .product-img {
+  transform: scale(1.08);
+}
+
+/* Content Area */
+.product-content {
+  @apply p-4;
+}
+
+.product-title {
+  @apply text-lg font-semibold text-gray-800 dark:text-gray-200 line-clamp-2;
+}
+
+.product-price {
+  @apply text-xl font-bold text-blue-600 dark:text-blue-400 mt-2;
+}
+
+/* Ratings */
+.product-rating {
+  @apply text-sm text-yellow-500 font-semibold mt-1;
+}
+
+/* Buttons */
+.product-btn {
+  @apply mt-4 w-full py-2 rounded-xl bg-blue-600 hover:bg-blue-500 
+         text-white font-semibold transition-all duration-300;
+}
