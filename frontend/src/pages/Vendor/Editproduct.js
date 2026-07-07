@@ -70,9 +70,9 @@ const EditProduct = () => {
     const img = existingImages[index];
 
     const cleanPath = img.image_url.replace(
-      process.env.REACT_APP_API_URL || "http://localhost:3000",
-      "",
-    );
+  process.env.REACT_APP_API_URL || "http://localhost:3000",
+  ""
+);
 
     const updated = existingImages.filter((_, i) => i !== index);
 

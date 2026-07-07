@@ -35,7 +35,7 @@ const WishlistPage = () => {
   const fixImageURL = (url) => {
     if (!url) return "/no-image.png";
     if (url.startsWith("http")) return url;
-    return `http://localhost:3000/${url.replace(/^\/+/, "")}`;
+    return `${process.env.REACT_APP_API_URL}/${url.replace(/^\/+/, "")}`;
     
   };
 

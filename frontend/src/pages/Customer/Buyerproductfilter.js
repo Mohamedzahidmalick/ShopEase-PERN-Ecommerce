@@ -84,8 +84,8 @@ const Buyerproductfilter = () => {
   // Fix image URL (ensures correct /uploads path)
   const fixImageURL = (url) => {
     if (!url) return "/placeholder.png";
-    if (url.startsWith("http://localhost:3000")) return url;
-    return `http://localhost:3000${url}`;
+    if (url.startsWith(`${process.env.REACT_APP_API_URL}`)) return url;
+    return `${process.env.REACT_APP_API_URL}${url}`;
   };
 
   useEffect(() => {

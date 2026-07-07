@@ -50,7 +50,7 @@ const AdminNavbar = () => {
           <img
             src={
               user?.image
-                ? `http://localhost:3000${user.image}`
+                ? `${process.env.REACT_APP_API_URL}${user.image}`
                 : "https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
             }
             className="w-10 h-10 rounded-full object-cover border border-[#00E7FF]"

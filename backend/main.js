@@ -8,11 +8,19 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // CORS FIRST
-app.use(cors({
+{/*app.use(cors({
   origin: "http://localhost:3001",
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"]
+}));*/}
+
+app.use(cors({
+  origin: process.env.FRONTEND_URL,
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true,
+  allowedHeaders: ["Content-Type", "Authorization"]
 }));
+
 
 //app.options("*", cors());
 
@@ -21,7 +29,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/uploads", express.static("uploads"));
-
 app.use("/profile_uploads", express.static("profile_uploads"));
 
 // Test DB
@@ -30,9 +37,9 @@ app.get("/", async (req, res) => {
     const result = await pool.query("SELECT NOW()");
     res.send(`DB Connected: ${result.rows[0].now}`);
   } catch (err) { 
-    console.error("DB ERROR", err.message); 
-    res.status(500).send("Database query failed");
-  }
+  console.log("FULL DB ERROR:", err); 
+  res.status(500).send(err.message);
+}
 });
 
 // AUTH ROUTES

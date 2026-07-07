@@ -85,7 +85,6 @@ exports.updateProductService = async (
   // ADD NEW IMAGES
   if (files && files.length > 0) {
     for (const file of files) {
-      //const image_url = `${process.env.BASE_URL}/uploads/${file.filename}`; if we use this it shows http://localhost:3000/uploads/savedfilename.extension
       const image_url = `/uploads/${file.filename}`;
       await pool.query(
         `INSERT INTO product_images(product_id, image_url)

@@ -114,16 +114,16 @@ const AdminProfile = () => {
 
             <div className="flex items-center gap-6">
               <img
-                src={
-                  imagePreview
-                    ? imagePreview
-                    : user?.image
-                      ? "http://localhost:3000" + user.image
-                      : "https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
-                }
-                className="w-28 h-28 rounded-full border"
-                alt=""
-              />
+  src={
+    imagePreview
+      ? imagePreview
+      : user?.image
+        ? `${process.env.REACT_APP_API_URL}${user.image}`
+        : "https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+  }
+  className="w-28 h-28 rounded-full border"
+  alt=""
+/>
 
               {editMode && (
                 <label className="px-4 py-2 bg-blue-600 text-white rounded cursor-pointer">
