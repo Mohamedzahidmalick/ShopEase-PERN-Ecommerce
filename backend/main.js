@@ -15,18 +15,25 @@ const PORT = process.env.PORT || 3000;
 // CORS FIRST
 const allowedOrigins = [
   "http://localhost:3001",
-  "https://shopease-pern-ecommerce-1q3wih4hz-zahid-projects.vercel.app"
+  "https://shopease-pern-ecommerce.vercel.app"
 ];
 
 app.use(
   cors({
     origin: function(origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
+
+      if (
+        !origin ||
+        allowedOrigins.includes(origin) ||
+        origin.endsWith(".vercel.app")
+      ) {
         callback(null, true);
-      } else {
+      } 
+      else {
         callback(new Error("Blocked by CORS"));
       }
     },
+
     credentials: true,
     methods: ["GET","POST","PUT","DELETE","OPTIONS"],
     allowedHeaders: ["Content-Type","Authorization"]
