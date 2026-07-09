@@ -10,6 +10,7 @@ const ProfileDropdown = () => {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const popupRef = useRef();
+  console.log("BUYER USER IMAGE:", user?.image);
 
   useEffect(() => {
       function handleClickOutside (event){
