@@ -80,7 +80,7 @@ const BuyerDashboard = () => {
           new Promise((resolve) => setTimeout(resolve, 800)),
         ]);
 
-        setProducts(res.data.products ||res.data || []);
+        setProducts(res.data.products || res.data || []);
       } catch (err) {
         console.error("Error loading products:", err);
       } finally {
@@ -228,17 +228,20 @@ border border-[#13183C] card-glow"
                       </h2>
 
                       <Heart
-                        size={22}
+                        size={24}
+                        strokeWidth={2}
+                        fill={wishlist.includes(p.id) ? "currentColor" : "none"}
                         onClick={(e) => {
                           e.stopPropagation();
                           toggleWishlist(p.id);
                         }}
-                        className={`cursor-pointer transition duration-200 hover:scale-125
-        ${
-          wishlist.includes(p.id)
-            ? "text-pink-500 fill-pink-500"
-            : "text-gray-400"
-        }`}
+                        className={`
+ cursor-pointer 
+ transition-all 
+ duration-200
+ hover:scale-125
+ ${wishlist.includes(p.id) ? "text-pink-500" : "text-gray-400"}
+ `}
                       />
                     </div>
 

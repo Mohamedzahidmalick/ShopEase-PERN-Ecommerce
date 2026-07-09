@@ -5,6 +5,7 @@ import { ProfileSchema } from "../Validation/ProfileValidation";
 import { toast } from "react-toastify";
 import api from "../services/Api";
 import { AuthContext } from "../Context/AuthContext";
+import { getImageUrl } from "../components/utils/imageUrl";
 
 const BuyerProfile = () => {
   const { user, login } = useContext(AuthContext);
@@ -74,17 +75,8 @@ const BuyerProfile = () => {
           <div className="bg-white dark:bg-[#161b22] shadow rounded-lg p-6 max-w-3xl">
             {/* IMAGE */}
             <div className="flex items-center gap-6">
-              <img
-                src={
-                  imagePreview ? imagePreview :
-                  user?.image
-                    ? `${process.env.REACT_APP_API_URL}${user.image}`
-                    : "https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
-                }
-                alt="Profile"
-                className="w-28 h-28 rounded-full border shadow"
-              />
-
+<img src={getImageUrl(user?.image)} alt="Profile"
+                className="w-28 h-28 rounded-full border shadow" />
               {editMode && (
                 <label className="px-4 py-2 bg-blue-600 text-white rounded cursor-pointer">
                   Change Photo
