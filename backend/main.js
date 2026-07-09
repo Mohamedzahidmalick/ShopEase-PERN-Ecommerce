@@ -15,12 +15,13 @@ const PORT = process.env.PORT || 3000;
 }));*/}
 
 app.use(cors({
-  origin: process.env.FRONTEND_URL,
+  origin: [
+    "http://localhost:3001",
+    process.env.FRONTEND_URL
+  ],
   methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true,
   allowedHeaders: ["Content-Type", "Authorization"]
 }));
-
 
 //app.options("*", cors());
 
