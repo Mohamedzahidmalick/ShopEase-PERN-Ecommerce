@@ -49,8 +49,11 @@ const ProfileDropdown = () => {
         className="flex items-center gap-3 cursor-pointer"
       >
 
-        <img
+       <img
  src={getImageUrl(user?.image)}
+ onError={(e)=>{
+   e.target.src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+ }}
  alt="profile"
  className="w-10 h-10 rounded-full object-cover border border-[#00E7FF]"
 />
