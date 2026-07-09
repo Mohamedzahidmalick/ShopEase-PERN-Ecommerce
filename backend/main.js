@@ -41,3 +41,45 @@ app.use((req,res,next)=>{
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended:true }));
+
+app.use("/uploads", express.static("uploads"));
+app.use("/profile_uploads", express.static("profile_uploads"));
+
+
+app.get("/", async (req,res)=>{
+  try{
+    const result = await pool.query("SELECT NOW()");
+    res.send(`DB Connected: ${result.rows[0].now}`);
+  }
+  catch(err){
+    console.log(err);
+    res.status(500).send(err.message);
+  }
+});
+
+
+app.use("/api/auth", routes);
+
+app.use("/api/admin", require("./route/admin_routes"));
+
+app.use("/api/products", require("./route/product_routes"));
+
+app.use("/api/cart", require("./route/cart_routes"));
+
+app.use("/api/orders", require("./route/order_routes"));
+
+app.use("/api/categories", require("./route/category_routes"));
+
+app.use("/api/wishlist", wishlistRoutes);
+
+app.use("/api/seller", require("./route/seller_settings_routes"));
+
+app.use("/api/buyer", require("./route/buyer_settings_routes"));
+
+app.use("/api/profile", require("./route/Profile_routes"));
+
+
+// VERY IMPORTANT FOR RENDER
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Server is running on port ${PORT}`);
+});
