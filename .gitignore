@@ -8,13 +8,6 @@ frontend/node_modules/
 backend/.env
 frontend/.env
 
-# Upload folders (optional)
-backend/uploads/*
-backend/profile_uploads/*
-
-# Keep folder structure
-!backend/uploads/.gitkeep
-!backend/profile_uploads/.gitkeep
 
 # Logs
 *.log
